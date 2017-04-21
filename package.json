@@ -1,0 +1,25 @@
+{
+  "name": "presentation-serverless-demo1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "clean": "rimraf build",
+    "webpack": "webpack --target=node --output-library=Jimp node_modules/jimp/index.js build/jimp.js",
+    "uglify": "uglifyjs -o build/jimp.min.js build/jimp.js",
+    "concat": "concat -o build/index.js src/index.js build/jimp.min.js",
+    "start": "npm run clean && npm run webpack && npm run uglify && npm run concat"
+  },
+  "keywords": [],
+  "author": "Paul Heasley <paul@phdesign.com.au>",
+  "license": "MIT",
+  "dependencies": {
+    "jimp": "^0.2.27",
+    "uglifyjs": "^2.4.10",
+    "webpack": "^2.4.1"
+  },
+  "devDependencies": {
+    "concat": "^3.0.0",
+    "rimraf": "^2.6.1"
+  }
+}
